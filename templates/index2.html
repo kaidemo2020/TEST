@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+ <script type="text/javascript">
+
+
+</script>
+
+<style>
+
+button#btn1:hover {color: orange;
+font-size: 30px !important;
+}
+button#btn2:hover {color: orange !important;
+font-size: 30px;
+}
+button#btn3:hover {color: orange !important;
+font-size: 30px;
+}
+.login1 {
+    position: absolute;
+    top: 36%;
+    left: 15%;
+    margin: -155px 0 0 -180px;
+    width: 430px;
+    padding: 10px;
+    height: 186px;
+    /* background: scroll; */
+    border-radius: 15px;
+    background: rgba(0,1,1,0.5)!important;
+    border: 1px solid !important;
+}
+.result {
+    position: absolute;
+    top: 35% !important;
+    left: 20%;
+    margin: -150px 0 0 -180px;
+    width: 373px;
+    height: 152px !important;
+    padding: 10px;
+    background: rgba(0,1,1,0.5)!important;
+    border-radius: 15px;
+    border: 1px solid !important;
+    baorder: 1px solid !important;
+    font-size: 30px;
+    /* margin-block-start: 0.67em; */
+    /* margin-block-end: 0.67em; */
+    /* margin-inline-start: 0px; */
+    /* margin-inline-end: 0px; */
+    font-weight: bold;
+    color: mintcream;
+}
+button#btn3 {
+    background: rgba(0,1,1,0.5)!important;
+    height: 7% !important;
+    width: 23% !important;
+    font-size: 30px !important;
+    border-radius: 15px;
+    font-weight: bold;
+    float: left;
+    margin-left: 15px;
+}
+
+button#btn2 {
+    background: rgba(0,1,1,0.5)!important;
+    height: 7% !important;
+    width: 21% !important;
+    font-size: 30px !important;
+    font-weight: bold;
+    border-radius: 15px;
+    float: left;
+    margin-left: 15px;
+}
+
+.login3 {
+    position: absolute;
+    top: 36%;
+    left: 15%;
+    margin: -155px 0 0 -180px;
+    width: 430px;
+    padding: 10px;
+    height: 186px;
+    /* background: scroll; */
+    border-radius: 15px;
+    background: rgba(0,1,1,0.5)!important;
+    border: 1px solid !important;
+}
+
+.login {
+position: absolute;
+    top: 36%;
+    left: 15%;
+    margin: -155px 0 0 -180px;
+    width: 430px;
+    padding: 10px;
+    height: 420px;
+    /* background: scroll; */
+    border-radius: 15px;
+    background: rgba(0,1,1,0.5)!important;
+    border: 1px solid !important;
+}
+h1 {
+    margin-top: 0px !important;
+}
+button#btn1 {
+    background:rgba(0,1,1,0.5)!important;
+}
+button#btn1 {
+   width: 12% !important;
+    height: 7% !important;
+    font-size: 30px !important;
+    float: left;
+    margin-left: 2px;
+}
+</style>  
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+ 
+$(document).ready(function(){
+ $(".login1").fadeOut();
+$(".login3").fadeOut();
+$(".login").fadeOut();
+
+
+
+  $("#btn1").click(function(){
+
+       $(".login3").fadeOut();
+	$(".login1").fadeIn(2000);
+	$(".login").fadeOut();
+	$(".result").fadeOut();
+	$(".result1").fadeOut();
+	
+	
+      
+    });
+   $("#btn2").click(function(){
+       $(".login1").fadeOut();
+	$(".login3").fadeIn(2000);
+	$(".login").fadeOut();
+	$(".result").fadeOut();
+	$(".result1").fadeOut();
+		
+     });
+ $("#btn3").click(function(){
+       $(".login1").fadeOut();
+	$(".login3").fadeOut();
+	$(".login").fadeIn(2000);
+	$(".result").fadeOut();
+	$(".result1").fadeOut();
+	
+   });
+	
+ 
+});
+</script>
+<body>
+
+
+<button id ="btn1" class="btn btn-primary btn-block btn-large">Mass load</button>
+<button id ="btn2" class="btn btn-primary btn-block btn-large">Classification Audit</button>
+<button id ="btn3" class="btn btn-primary btn-block btn-large">Classification Lookup</button>
+ <div class="login">
+	<h1>Classification Lookup</h1>
+	
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Description" placeholder="Description" required="required" />
+        <input type="text" name="Country of Origin" placeholder="Country of Origin" required="required" />
+		<input type="text" name="Text Division" placeholder="Text Division" required="required" />
+		<input type="text" name="Profit Center for Semi/Finished products" placeholder="Profit Center for Semi/Finished products" required="required" />
+        <input type="text" name="Product Hierarchy" placeholder="Product Hierarchy" required="required" />
+	<input type="text" name="Sales Code" placeholder="Sales Code" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   
+</div>
+<div class = "result">
+{{ prediction_text }}
+</div>
+<div class="login3">
+<h1>Classification Audit</h1>
+<form class="" action="data" method="post" enctype=multipart/form-data>
+  <input type="file" name="file" value="">
+  <input type="submit" name="" value="Submit" class="btn btn-primary btn-block btn-large">
+</form>
+ </div>
+ <div class="login1">
+	
+<h1>Mass load</h1>
+     
+<form class="" action="data1" method="post" enctype=multipart/form-data>
+  <input type="file" name="file" value="">
+  <input type="submit" name="" value="Submit" class="btn btn-primary btn-block btn-large">
+</form>
+
+   <br>
+   <br>
+   
+
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
+

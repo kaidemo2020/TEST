@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+ 
+  <title>ML API</title>
+<style>
+button[type="submit"] {
+    */: ;
+    margin: 2em 0;
+    letter-spacing: 4px;
+    background: #8DC26F;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.9em;
+    height: 40px;
+    /* top: 34px; */
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 100;
+    width: 83.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.login {
+    width: 40%;
+    height: 50%;
+    margin: 3em auto;
+    background: #76B840;
+    background-size: cover;
+}
+
+select {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.9em;
+    height: 40px;
+    /* top: 34px; */
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 100;
+    width: 80.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background-position: -800px 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.9em;
+    height: 17px;
+    /* top: 34px; */
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 100;
+    width: 75.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background-position: -800px 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+button.btn.btn-primary.btn-block.btn-large {
+    font-size: .9em;
+    color: #fff;
+    background: #76b852;
+    outline: none;
+    border: 1px solid #76b852;
+    cursor: pointer;
+    padding: 0.9em;
+    -webkit-appearance: none;
+    /* width: 100%; */
+    margin: 2em 0;
+    letter-spacing: 4px;
+    background: #8DC26F !important;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.9em;
+    height: 40px;
+    /* top: 34px; */
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 100;
+    width: 83.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    /* transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1); */
+    /* background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%); */
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%); */
+    /* background-position: -800px 0; */
+    /* background-size: 100%; */
+    /* background-repeat: no-repeat; */
+    /* color: #fff; */
+    /* font-family: 'Roboto', sans-serif; */
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    font-weight: 100;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    font-family: 'Roboto', sans-serif;
+    /* margin-top: 77px; */
+}
+
+body {
+    background: #8DC26B;
+}
+
+button:hover {
+    background: 76b852;
+}
+
+btn-block.btn-large:hover {
+    background: red;
+}
+
+button[type="submit"]:hover {
+    /* background: red; */
+    background: #76B9E3;
+}
+
+.select-items {
+    /* background: red; */
+}
+
+option {
+    background: #76B840;
+    /* height: 200px; */
+}
+
+option {
+}
+input[type="submit"] {
+    font-size: .9em;
+    color: #fff;
+    background: #76b852;
+    outline: none;
+    border: 1px solid #76b852;
+    cursor: pointer;
+    padding: 0.9em;
+    -webkit-appearance: none;
+    /* width: 100%; */
+    margin: 2em 0;
+    letter-spacing: 4px;
+    background: #8DC26F !important;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.9em;
+    height: 40px;
+    /* top: 34px; */
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 100;
+    width: 83.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+input[type="submit"]:hover {
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+    transition: .5s all;
+    background: #8DC26F;
+}
+.result {
+    /* bottom: 91px; */
+    /* position: relative; */
+    font-size: 2em;
+    /* margin-top: -32px; */
+    text-align: center;
+    color: #fff;
+    font-weight: 100;
+    text-transform: capitalize;
+    /* letter-spacing: 4px; */
+    font-family: 'Roboto', sans-serif;
+    /* border: 1px solid; */
+    /* margin-bottom: auto; */
+}
+</style>
+</head>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+ 
+  <title>ML API</title>
+</head>
+<body>
+
+ <div class="login">
+	<h1>Demand Forecast</h1>
+	
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	<select id="origin" name="origin" required>
+	<option value="">ORIGIN</option>
+  <option value="1">Binh Duog</option>
+  <option value="2">Binh Phoc</option>
+  <option value="3">Binh Dinh</option>
+  <option value="4">Bac Giang</option>
+  <option value="5">Bac Kan</option>
+  <option value="6">Bac Ninh</option>
+  <option value="7">Cao Bang</option>
+<option value="8">Ca Mau</option>
+<option value="9">Gia Lai</option>
+<option value="10">Ha Giang</option>
+<option value="11">Ha Nam</option>
+<option value="12">Ha Tinh</option>
+<option value="13">Hai Duong</option>
+<option value="14">Hai Phong</option>
+<option value="15">Hoa Binh</option>
+<option value="16">Khanh Hoa</option>
+<option value="17">Da Nang</option>
+<option value="18">Dak Lak</option>
+</select>
+<select id="dest" name="DESTINATION" required>
+	<option value="">DESTINATION</option>
+  <option value="1">Kon Tum</option>
+  <option value="2">Lao Cai</option>
+  <option value="3">Lang Son</option>
+  <option value="4">Long An</option>
+  <option value="5">Nam Dinh</option>
+  <option value="6">Ninh Binh</option>
+  <option value="7">Phu Tho</option>
+<option value="8">Quang Binh</option>
+<option value="9">Quang Nam</option>
+<option value="10">Quang Ngai</option>
+<option value="11">Quang Ninh</option>
+<option value="12">Quang Tri</option>
+<option value="13">Soc Trang</option>
+<option value="14">Son La</option>
+<option value="15">Thanh Hoa</option>
+<option value="16">Thai Binh</option>
+<option value="17">Tra Vinh</option>
+<option value="18">Vinh Long</option>
+ </select>
+<select id="item" name="item" required>
+<option value="">ITEMS</option>
+  <option value="1">Commoditity</option>
+  <option value="2">Domestic Express mail</option>
+ <option value="3">Fast Moving Consumer Goods</option>
+ <option value="4">Flower telegraph and gift</option>
+ <option value="5">International Letter Post</option>
+ <option value="6">International Parcel Post</option>
+ <option value="7">Ordinary mail</option>
+ <option value="8">Printed papers</option>
+ <option value="9">Telecommunications Device</option>
+ <option value="10">Television Device</option>
+
+</select>
+
+  <input type="date" id="date" name="date" required>
+  	
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+<div class = "result">
+{{ prediction_text }}
+</div>
+   
+</div>
+
+
+
+
+
+</body>
+</html>
+
+
+
+

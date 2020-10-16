@@ -1,0 +1,300 @@
+
+<html>
+  <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+<script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+$base-spacing-unit: 24px;
+$half-spacing-unit: $base-spacing-unit / 2;
+
+$color-alpha: #1772FF;
+$color-form-highlight: #EEEEEE;
+
+*, *:before, *:after {
+	box-sizing:border-box;
+}
+
+
+body {
+	padding:$base-spacing-unit;
+	font-family:'Source Sans Pro', sans-serif;
+	margin:0;
+}
+
+input#btnExport {
+margin-top: 15px;
+    height: 7%;
+    width: 15%;
+    background: rgba(0,1,1,0.5)!important;
+    margin-left: 10px;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+input#btnExport:hover {
+    color: orange;
+}
+
+button.float-left.submit-button:hover{ color: orange;}
+
+button.float-left.submit-button {
+     width: 7% !important;
+    height: 7% !important;
+    float: right;
+    margin-top: -49px;
+    background: rgba(0,1,1,0.5)!important;
+    border: none;
+    font-weight: bold;
+    margin-right: 15px;
+    border-radius: 15px;
+    font-size: xx-large;
+    color: white;
+}
+.h1, h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 23px !important;
+}
+th {
+    /* display: flex; */
+    width: 100%;
+    background: #000;
+    padding: ($half-spacing-unit * 1.5) 0;
+    color: white;
+}
+h1,h2,h3,h4,h5,h6 {
+	margin:0;
+}
+.h1, h1 {
+    font-family: fantasy !important;
+    font-size: 36px;
+}
+div#piechart_3d {
+    /* align-items: center !important; */
+    margin-left: 20% !important;
+}
+.container {
+	max-width: 1000px;
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	min-height:100vh;
+}
+
+.table {
+	width:100%;
+	border:1px solid $color-form-highlight;
+}
+td {
+    background: antiquewhite !important;
+}
+
+.table-header {
+	display:flex;
+	width:100%;
+	background:#000;
+	padding:($half-spacing-unit * 1.5) 0;
+}
+
+.table-row {
+	display:flex;
+	width:100%;
+	padding:($half-spacing-unit * 1.5) 0;
+	
+	&:nth-of-type(odd) {
+		background:$color-form-highlight;
+	}
+}
+
+.table-data, .header__item {
+	flex: 1 1 20%;
+	text-align:center;
+}
+
+.header__item {
+	text-transform:uppercase;
+}
+
+.filter__link {
+	color:white;
+	text-decoration: none;
+	position:relative;
+	display:inline-block;
+	padding-left:$base-spacing-unit;
+	padding-right:$base-spacing-unit;
+	
+	&::after {
+		content:'';
+		position:absolute;
+		right:-($half-spacing-unit * 1.5);
+		color:white;
+		font-size:$half-spacing-unit;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	&.desc::after {
+		content: '(desc)';
+	}
+
+	&.asc::after {
+		content: '(asc)';
+	}
+	
+}
+
+
+.export input {
+      font-size: 20px;
+    background: 76B840;
+    
+    color: white;
+    border: none !important;
+    height: 9%;
+    
+    /* width: 30% !important; */
+    align: center !important;
+    /* right: 50% !important; */
+    border: none !important;
+}
+
+.table>thead>tr>th {
+    background: gray ;
+    height: 50px;
+    color: white;
+    font-size: 22px;
+}
+
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+	
+	$("#btnExport").click(function () {
+	
+        $("#empTable").table2excel({
+            filename: "Data.xls"
+        });
+    });
+});
+</script>
+</head>
+ <body>
+<div class = "export">
+<input type="button" id="btnExport" class="btn" value="Export to Excel" /> 
+<form action="/" class="inline">
+    <button class="float-left submit-button" > << </button>
+</form>
+
+<h1>Predicted Data</h1>
+</div>
+
+<div class="container">
+      <table border = 1 class="table table-hover" id="empTable">
+<th>Description</th>
+<th>Country of Origin</th>
+<th>Text Division</th>
+<th>Profit Center for Semi/Finished products</th>
+<th>Product Hierarchy</th>
+<th>Sales Code</th>
+<th>Number</th>
+<th>Probability</th>
+
+{% for row_index in range(data['Number']|count) %}
+    <tr>
+<td>{{ data['Description'][row_index] }}</td>
+<td>{{ data['Country of Origin'][row_index]|tojson|safe }}</td>
+<td>{{ data['Text Division'][row_index]|tojson|safe }}</td>
+<td>{{ data['Profit Center for Semi/Finished products'][row_index]|tojson|safe }}</td>
+<td>{{ data['Product Hierarchy'][row_index] }}</td>
+<td>{{ data['Sales Code'][row_index] }}</td>
+<td>{{ data['Number'][row_index] }}</td>
+<td>{{ data['Probability'][row_index] }}</td>
+      
+    </tr>
+{% endfor %}
+
+</table>
+</div>
+</body>
+</html>
+
+
+
+
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+			debugger;
+		const test = {{ data['Probability'] }};
+		var count1 = 0;
+		var count2 = 0;
+		var count3 = 0;
+		var count4 = 0;
+		var dist1=[];
+		var dist2=[];
+		var dist3=[];
+		var dist4=[];
+	for (const [key, value] of Object.entries(test)) {
+		if(value > 89){
+  			count1++;
+				}
+		else if (value > 69 && value < 90){
+		count2++;
+		}
+		else if (value > 49 && value < 70){
+		count3++;
+		}
+		else{
+			count4++;
+			}
+	}
+	dist1.push("Accuracy above 90%");
+	dist1.push(count1);
+	dist2.push("Accuracy between 70% to 90%");
+	dist2.push(count2);
+	dist3.push("Accuracy between 50% to 70%");
+	dist3.push(count3);
+	dist4.push("Accuracy below 50%");
+	dist4.push(count4);
+
+
+
+  var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          dist1,
+          dist2,
+          dist3,
+          dist4
+ 
+        ]);
+
+        var options = {
+          title: 'Predicted Accuracy Chart',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
