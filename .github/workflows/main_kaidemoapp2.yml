@@ -18,17 +18,17 @@ jobs:
     - name: Set up Python version
       uses: actions/setup-python@v1
       with:
-        python-version: '3.6'
+        python-version: '3.7'
 
     - name: Build using AppService-Build
       uses: azure/appservice-build@v2
       with:
         platform: python
-        platform-version: '3.6'
+        platform-version: '3.7'
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'kaidemoapp2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fc9b363196f4482da12fdf078a365c8d }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_467eb2099002418c9d6f573377f38ddd }}
